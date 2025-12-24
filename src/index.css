@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+body{
+    font-size: 12pt;
+    font-family: 'Poppins' , sans-serif;
+    background-color:var(--background) ;
+}
+
+:root{
+    --primary:#35B357;
+    --primary-dark:#E8F2EC;
+    --secondary:#4A5568;
+    --background:#E8F2EC;
+    --border-primary:#59A280;
+    --border-secondary:#c7c7c7;
+    --section:#f3f3f3;
+    --card:#ffffff;
+    --card-head:#f5f5f5;
+    --background-second:#e2f2f2;
+    --text:#444444;
+    --text-primary:#31784B;
+    --text-secondary:#5F9E74;
+    --heading:#5F9E74;
+    --sub-heading:#494949;
+    --header:#90D23F;
+}
+@layer utilities {
+  /* Backgrounds */
+  .bg-header{background-color: var(--header);}
+  .bg-primary { background-color: var(--primary); }
+  .bg-primary-dark { background-color: var(--primary-dark); }
+  .bg-secondary { background-color: var(--secondary); }
+  .bg-background { background-color: var(--background); }
+  .bg-background-second { background-color: var(--background-second); }
+  .bg-section { background-color: var(--section); }
+  .bg-card { background-color: var(--card); }
+  .bg-card-head { background-color: var(--card-head); }
+
+  /* Text */
+  .text-primary { color: var(--text-primary); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-heading { color: var(--heading); }
+  .text-sub-heading { color: var(--sub-heading); }
+  .text-text { color: var(--text); }
+
+  /* Borders */
+  .border-primary { border-color: var(--border-primary); }
+  .border-secondary { border-color: var(--border-secondary); }
+}
+button{
+    font-weight: 600; 
+}
+li{
+    font-weight: 500;
+}
+button{
+    text-wrap: nowrap;
+}

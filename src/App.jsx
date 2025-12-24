@@ -1,0 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Template from "./components/sections/Template";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Layout Route */}
+        <Route element={<Template />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+
+        {/* Fallback */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
