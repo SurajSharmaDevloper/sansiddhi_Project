@@ -15,8 +15,8 @@ const Template = () => {
       </main>
 
       {/* Footer */}
-      <div className="mt-10">
-        <ContactCTA />
+      <div className="">
+        
         <Footer />
       </div>
     </div>

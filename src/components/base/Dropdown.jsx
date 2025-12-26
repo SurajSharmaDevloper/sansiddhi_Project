@@ -31,7 +31,7 @@ const Dropdown = ({
       {/* Select Box */}
       <div
         onClick={() => setOpen(!open)}
-        className="relative cursor-pointer rounded-xl border border-gray-300 bg-neutral-100 px-4 py-3
+        className="relative cursor-pointer rounded-lg border border-gray-300 bg-neutral-100 px-4 py-2
                    text-sm text-gray-700 flex justify-between items-center
                    hover:border-lime-300 focus-within:ring-2 focus-within:ring-lime-300"
       >

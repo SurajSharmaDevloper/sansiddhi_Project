@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Template from "./components/sections/Template";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   return (
@@ -10,6 +11,8 @@ const App = () => {
         {/* Layout Route */}
         <Route element={<Template />}>
           <Route path="/" element={<Home />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+
         </Route>
 
         {/* Fallback */}

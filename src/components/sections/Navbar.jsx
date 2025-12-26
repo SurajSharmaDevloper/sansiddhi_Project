@@ -1,123 +1,105 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Logo from "/NoBack_Logo.png";
+
+const navItemClass = ({ isActive }) =>
+  `relative flex items-center gap-2 cursor-pointer transition
+   after:content-[''] after:absolute after:left-0 after:bottom-0
+   after:h-[2px] after:bg-primary after:transition-all after:duration-300
+   ${isActive
+    ? "text-primary after:w-full"
+    : "text-text after:w-0 hover:after:w-full hover:text-primary"
+  }`;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [othersOpen, setOthersOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("Home");
-
-  const navItemClass = (name) =>
-    `relative flex items-center gap-2 hover:text-[#4A5568] cursor-pointer 
-   after:content-[''] after:absolute after:left-0 after:bottom-0
-   after:h-[2px] after:bg-primary after:transition-all after:duration-300
-   ${
-     activeTab === name
-       ? "text-primary border-b-2 border-primary after:w-full"
-       : "border-b-2 border-transparent after:w-0 hover:after:w-full hover:text-primary"
-   }`;
 
   return (
-    <nav className="w-full sticky top-0 left-0 z-99 bg-white border-b border-gray-200">
+    <nav className="w-full sticky top-0 z-50 bg-white border-b border-gray-200">
       {/* Top Info Bar */}
-      <div className="w-full flex items-center justify-between px-10 p-2 bg-primary text-white text-sm text-center">
+      <div className="w-full flex items-center justify-between px-10 py-2 bg-primary text-white text-sm">
         <div className="flex items-center gap-5">
-          <span className="flex items-center gap-1 ">
-            <i class="fa-regular fa-envelope"></i>
+          <span className="flex items-center gap-1">
+            <i className="fa-regular fa-envelope"></i>
             <p className="hidden sm:block">support@sansiddhi.co.in</p>
           </span>
-          <span className="flex items-center gap-1 ">
-            <i class="fa-solid fa-phone"></i>
+          <span className="flex items-center gap-1">
+            <i className="fa-solid fa-phone"></i>
             <p className="hidden sm:block">+91-9899210941</p>
           </span>
         </div>
-        <div>
-          <a className="font-semibold underline hover:text-gray-200" href="#">
-            Partner With Us
-          </a>
-        </div>
+        <a className="font-semibold underline hover:text-gray-200" href="#">
+          Partner With Us
+        </a>
       </div>
 
       {/* Main Navbar */}
-      <div className="w-[95%] mx-auto flex items-center justify-between">
+      <div className="w-[95%] mx-auto flex items-center justify-between py-2">
         {/* Logo */}
-        <div className="w-24">
-          <img src={Logo} alt="Logo" />
-        </div>
+        <NavLink to="/" className="w-24">
+          <img src={Logo} alt="Sansiddhi Logo" />
+        </NavLink>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10">
-          <ul className="flex items-center gap-8 text-text font-medium">
-            <li
-              onClick={() => setActiveTab("Home")}
-              className={navItemClass("Home")}
-            >
-              <i className="fa-solid fa-house text-xs"></i>
-              Home
+          <ul className="flex items-center gap-8 font-medium">
+            <li>
+              <NavLink to="/" className={navItemClass}>
+                <i className="fa-solid fa-house text-xs"></i>
+                Home
+              </NavLink>
             </li>
 
-            <li
-              onClick={() => setActiveTab("About")}
-              className={navItemClass("About")}
-            >
-              <i className="fa-solid fa-circle-info text-sm"></i>
-              About
+            <li>
+              <NavLink to="/aboutus" className={navItemClass}>
+                <i className="fa-solid fa-circle-info text-sm"></i>
+                About
+              </NavLink>
             </li>
 
-            <li
-              onClick={() => setActiveTab("Engagement")}
-              className={navItemClass("Engagement")}
-            >
-              <i className="fa-solid fa-handshake text-sm"></i>
-              Engagement
+            <li>
+              <NavLink to="/engagement" className={navItemClass}>
+                <i className="fa-solid fa-handshake text-sm"></i>
+                Engagement
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/services" className={navItemClass}>
+                <i className="fa-solid fa-handshake text-sm"></i>
+                Services
+              </NavLink>
             </li>
 
-            <li
-              onClick={() => setActiveTab("Inheritance")}
-              className={navItemClass("Inheritance")}
-            >
-              <i className="fa-solid fa-scale-balanced text-sm"></i>
-              Inheritance
-            </li>
-
-            {/* Others Dropdown */}
-            <li className="relative group">
-              <button
-                onClick={() => setActiveTab("Others")}
-                className={navItemClass("Others")}
-              >
-                Others
-                <i className="fa-solid fa-chevron-down text-xs"></i>
-              </button>
-
-              <ul className="absolute left-0 top-full mt-3 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                  Policies
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                  Help Center
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                  Contact
-                </li>
-              </ul>
+            <li>
+              <NavLink to="/contact" className={navItemClass}>
+                <i className="fa-regular fa-address-book"></i>
+                Contact
+              </NavLink>
             </li>
           </ul>
 
-          {/* Action Buttons */}
+          {/* Auth Buttons */}
           <div className="flex items-center">
-            <button className="bg-primary text-white px-3 py-1.5 rounded-l-lg hover:bg-secondary transition">
+            <NavLink
+              to="/signup"
+              className="bg-primary text-white px-3 py-1.5 rounded-l-lg hover:bg-secondary"
+            >
               Sign Up
-            </button>
-            <button className="bg-secondary text-white px-3 py-1.5 rounded-r-lg hover:opacity-90 transition">
+            </NavLink>
+            <NavLink
+              to="/login"
+              className="bg-secondary text-white px-3 py-1.5 rounded-r-lg hover:opacity-90"
+            >
               Login
-            </button>
+            </NavLink>
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-2xl text-text"
+          aria-label="Toggle menu"
         >
           <i className="fa-solid fa-bars"></i>
         </button>
@@ -126,44 +108,39 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
-          <ul className="flex flex-col p-4 gap-4 text-text">
-            {["Home", "About", "Engagement", "Inheritance"].map((item) => (
-              <li
-                key={item}
-                onClick={() => {
-                  setActiveTab(item);
-                  setMenuOpen(false);
-                }}
-                className={`cursor-pointer ${
-                  activeTab === item ? "text-primary font-semibold" : ""
-                }`}
-              >
-                {item}
+          <ul className="flex flex-col p-4 gap-4 font-medium">
+            {[
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+              { name: "Engagement", path: "/engagement" },
+              { name: "Contact", path: "/contact" },
+            ].map((item) => (
+              <li key={item.name}>
+                <NavLink
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    isActive ? "text-primary font-semibold" : "text-text"
+                  }
+                >
+                  {item.name}
+                </NavLink>
               </li>
             ))}
 
-            {/* Mobile Others */}
-            <li>
-              <button
-                onClick={() => setOthersOpen(!othersOpen)}
-                className="flex items-center justify-between w-full"
+            <div className="flex mt-4">
+              <NavLink
+                to="/signup"
+                className="bg-primary text-white px-4 py-2 rounded-l-lg w-1/2 text-center"
               >
-                Others
-                <i
-                  className={`fa-solid fa-chevron-down transition ${
-                    othersOpen ? "rotate-180" : ""
-                  }`}
-                ></i>
-              </button>
-            </li>
-
-            <div className="flex mt-3">
-              <button className="bg-primary text-white px-4 py-2 rounded-l-lg w-1/2">
                 Sign Up
-              </button>
-              <button className="bg-secondary text-green-900 px-4 py-2 rounded-r-lg w-1/2">
+              </NavLink>
+              <NavLink
+                to="/login"
+                className="bg-secondary text-white px-4 py-2 rounded-r-lg w-1/2 text-center"
+              >
                 Login
-              </button>
+              </NavLink>
             </div>
           </ul>
         </div>

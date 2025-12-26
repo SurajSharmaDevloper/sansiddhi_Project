@@ -42,7 +42,7 @@ const SearchFilterCard = ({
         <button
           onClick={handleSearch}
           className="w-full rounded-lg bg-primary text-white
-                     px-3 py-2 hover:bg-green-600 active:scale-95 transition-all"
+                     px-3 py-1.5 hover:bg-green-600 active:scale-95 transition-all"
         >
           Search
         </button>

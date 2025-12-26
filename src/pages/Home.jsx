@@ -47,7 +47,7 @@ const testimonialsData = [
 
 const Home = () => {
   return (
-    <div>
+    <div className="mb-5">
       <div className="">
         <HeroSlider />
       </div>
