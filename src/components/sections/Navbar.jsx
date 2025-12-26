@@ -111,7 +111,7 @@ const Navbar = () => {
           <ul className="flex flex-col p-4 gap-4 font-medium">
             {[
               { name: "Home", path: "/" },
-              { name: "About", path: "/about" },
+              { name: "About", path: "/aboutus" },
               { name: "Engagement", path: "/engagement" },
               { name: "Contact", path: "/contact" },
             ].map((item) => (
