@@ -3,8 +3,8 @@ import LocationMap from "../blocks/LocationMap";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary p-5">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <footer className="bg-secondary">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-5">
         <div className="w-full p-5">
           <div className="flex items-center gap-3 mb-4">
             {/* Replace with your logo */}
@@ -123,6 +123,14 @@ const Footer = () => {
             </p>
           </div>
         </div>
+      </div>
+      {/* Bottom Bar */}
+      <div className="bg-primary w-full">
+        <p className="text-center text-xs sm:text-sm text-gray-100 py-4">
+          © {new Date().getFullYear()}{" "}
+          <span className="font-medium">Sansiddhi Consultancy Services</span>{" "}
+          All Rights Reserved.
+        </p>
       </div>
     </footer>
   );
