@@ -12,11 +12,11 @@ const App = () => {
         <Route element={<Template />}>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
-
+          <Route path="*" element={<NotFound />} />
         </Route>
 
         {/* Fallback */}
-        <Route path="*" element={<NotFound />} />
+
       </Routes>
     </BrowserRouter>
   );
