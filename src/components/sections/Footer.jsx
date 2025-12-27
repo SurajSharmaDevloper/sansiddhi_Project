@@ -3,11 +3,9 @@ import LocationMap from "../blocks/LocationMap";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary">
-      {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12 flex justify-between items-start flex-wrap ">
-        {/* Brand + Description */}
-        <div className="w-1/4 max-[1150px]:w-1/2">
+    <footer className="bg-secondary p-5">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="w-full p-5">
           <div className="flex items-center gap-3 mb-4">
             {/* Replace with your logo */}
             <div className="h-24 w-24 rounded-full bg-white flex items-start justify-center text-white font-semibold">
@@ -38,65 +36,63 @@ const Footer = () => {
             </button>
           </div>
         </div>
-
-        {/* Navigation */}
-        <div className="flex max-[1150px]:w-1/2 max-[1150px]:justify-around w-1/4 justify-between flex-wrap">
-          <div>
-            <h4 className="text-sm font-semibold text-gray-100 mb-4">
-              Navigation
-            </h4>
-            <ul className="space-y-3 text-sm text-gray-300">
-              {["Home", "About", "Engagement", "Inheritance"].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="hover:text-[#35B357] transition flex items-center gap-2"
-                  >
-                    <span className="text-[#35B357]">›</span>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-gray-100 mb-4">
-              Support
-            </h4>
-            <ul className="space-y-3 text-sm text-gray-300">
-              {[
-                "Contact Us",
-                "Get In Quote",
-                "Terms of Services",
-                "Privacy Policy",
-              ].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="hover:text-[#35B357] transition flex items-center gap-2"
-                  >
-                    <span className="text-[#35B357]">›</span>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="w-full mt-15 flex flex-col max-[1150px]:items-center ">
-            <h4 className="text-sm font-semibold text-gray-100 mb-4">
-              Our Social Media's
-            </h4>
-            <div className="text-2xl w-full  text-gray-200 flex gap-10 justify-start max-[1150px]:">
-              <i class="fa-brands fa-facebook hover:text-green-600"></i>
-              <i class="fa-brands fa-linkedin hover:text-green-600"></i>
-              <i class="fa-brands fa-square-x-twitter hover:text-green-600"></i>
-              <i class="fa-brands fa-instagram hover:text-green-600"></i>
+        <div>
+          <div className="flex w-full pt-10 max-[600px]:pt-0 justify-around flex-wrap">
+            <div>
+              <h4 className="text-sm font-semibold text-gray-100 mb-4">
+                Navigation
+              </h4>
+              <ul className="space-y-3 text-sm text-gray-300">
+                {["Home", "About", "Engagement", "Inheritance"].map((item) => (
+                  <li key={item}>
+                    <a
+                      href="#"
+                      className="hover:text-[#35B357] transition flex items-center gap-2"
+                    >
+                      <span className="text-[#35B357]">›</span>
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-gray-100 mb-4">
+                Support
+              </h4>
+              <ul className="space-y-3 text-sm text-gray-300">
+                {[
+                  "Contact Us",
+                  "Get In Quote",
+                  "Terms of Services",
+                  "Privacy Policy",
+                ].map((item) => (
+                  <li key={item}>
+                    <a
+                      href="#"
+                      className="hover:text-[#35B357] transition flex items-center gap-2"
+                    >
+                      <span className="text-[#35B357]">›</span>
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="w-full mt-8 flex justify-center flex-col max-[1150px]:items-center ">
+              <h4 className="text-sm font-semibold text-center text-gray-100 mb-4">
+                Our Social Media's
+              </h4>
+              <div className="text-2xl w-full  text-gray-200 flex gap-10 justify-center">
+                <i class="fa-brands fa-facebook hover:text-green-600"></i>
+                <i class="fa-brands fa-linkedin hover:text-green-600"></i>
+                <i class="fa-brands fa-square-x-twitter hover:text-green-600"></i>
+                <i class="fa-brands fa-instagram hover:text-green-600"></i>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Contact Info */}
-        <div>
+        <div className="col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-1">
           <div>
             <LocationMap />
           </div>
@@ -127,15 +123,6 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="bg-primary">
-        <p className="text-center text-xs sm:text-sm text-gray-100 py-4">
-          © {new Date().getFullYear()}{" "}
-          <span className="font-medium">Sansiddhi Consultancy Services</span>{" "}
-          All Rights Reserved.
-        </p>
       </div>
     </footer>
   );
